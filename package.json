@@ -1,7 +1,7 @@
 {
   "name": "backend-track-b",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a case assignment.",
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/server.ts",
@@ -23,5 +23,13 @@
     "nodemon": "^3.1.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvilTerry/backend-track-b.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EvilTerry/backend-track-b/issues"
+  },
+  "homepage": "https://github.com/EvilTerry/backend-track-b#readme"
 }
