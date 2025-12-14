@@ -4,7 +4,7 @@ import { getDB } from '../database/database';
 export const getProducts = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const db = await getDB();
-        const { search, category } = req.query;
+        const { search, category, page = 1, page_size = 10 } = req.query;
 
         let query = 'SELECT DISTINCT p.* FROM products p'
 
@@ -31,11 +31,23 @@ export const getProducts = async (req: Request, res: Response, next: NextFunctio
         if (conditions.length > 0) {
             query += " WHERE " + conditions.join(" AND ");
         }
-        
+
+        // Pagination
+        const limit = Number(page_size);
+        const offset = (Number(page) - 1) * limit
+
+        query += " LIMIT ? OFFSET ? ";
+        params.push(limit, offset)
+
         const products = await db.all(query, params);
 
         res.json({
-            data: products
+            data: products,
+            meta: {
+                page: Number(page),
+                limit: limit,
+                count: products.length
+            }
         });
     } catch (error) {
         next(error);
