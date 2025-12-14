@@ -50,6 +50,17 @@ CREATE TABLE product_categories (
 );
 PRAGMA foreign_keys = ON;
 
-INSERT INTO categories (name) VALUES ('Clothing'), ('Electronics');
-INSERT INTO products (name, description, current_price) VALUES ('Shirt', 'This is a shirt', 1299), ('Speaker', 'It produces music', 4999);
-INSERT INTO product_categories (product_id, category_id) VALUES (1, 1), (2, 2);
+INSERT INTO categories (name) 
+VALUES ('Clothing'), ('Electronics');
+
+INSERT INTO products (name, description, current_price) 
+VALUES  ('Shirt', 'This is a shirt', 1299), 
+        ('Speaker', 'It produces music', 4999),
+        ('Denim Jeans', 'Jeans', 4999),
+        ('4K Monitor', 'Ultra HD display', 34900),
+        ('Wool Hoodie', 'Good for winter', 3550),
+        ('Mechanical Keyboard', 'RGB backlit clicky switches', 8999),
+        ('Smart Watch', 'Tracks steps and heart rate', 19900);
+
+INSERT INTO product_categories (product_id, category_id) 
+VALUES (1, 1), (2, 2), (3, 1), (4, 2), (5, 1), (6, 2), (7, 2);
