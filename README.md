@@ -46,3 +46,9 @@ The server will start at: `http://localhost:3000`
 
 ### Database config
 No manual steps required, on the first run it will generate the db file and seed it with dummy data.
+
+### Example URLs
+- Get all: `http://localhost:3000/api/products`
+- Search: `http://localhost:3000/api/products?search=ea`
+- Filter: `http://localhost:3000/api/products?category=Electronics`
+- Pagination: `http://localhost:3000/api/products?page=1&page_size=5`
