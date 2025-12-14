@@ -16,3 +16,33 @@ The requirements:
         - Search (Name)
         - Category filter
         - pagination
+
+## How to run
+
+### Prerequisites
+- Node.js
+- npm
+
+### Installation
+Install the dependencies defined in `package.json`, so run
+```
+npm install
+```
+
+### Running server
+You can start the server in dev mode or standard.
+
+#### Dev
+```
+npm run dev
+```
+
+### Standard
+```
+npm start
+```
+
+The server will start at: `http://localhost:3000`
+
+### Database config
+No manual steps required, on the first run it will generate the db file and seed it with dummy data.
