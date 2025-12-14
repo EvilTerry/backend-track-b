@@ -29,7 +29,8 @@ CREATE TABLE orders (
     shipping_total INTEGER,
     grand_total INTEGER,
     status TEXT,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(user_id) REFERENCES users(id)
 );
 CREATE TABLE order_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,16 +38,18 @@ CREATE TABLE order_items (
     product_id INTEGER,
     unit_price INTEGER,
     quantity INTEGER,
-    FOREIGN KEY(order_id) REFERENCES orders(id)
+    FOREIGN KEY(order_id) REFERENCES orders(id),
+    FOREIGN KEY(product_id) REFERENCES products(id)
 );
 CREATE TABLE product_categories (
     product_id INTEGER,
     category_id INTEGER,
     FOREIGN KEY(product_id) REFERENCES products(id),
-    FOREIGN KEY(category_id) REFERENCES categories(id)
+    FOREIGN KEY(category_id) REFERENCES categories(id),
+    PRIMARY KEY (product_id, category_id)
 );
 PRAGMA foreign_keys = ON;
 
-INSERT INTO categories (name) VALUES ('Clothing'), ('Furniture');
+INSERT INTO categories (name) VALUES ('Clothing'), ('Electronics');
 INSERT INTO products (name, description, current_price) VALUES ('Shirt', 'This is a shirt', 1299), ('Speaker', 'It produces music', 4999);
 INSERT INTO product_categories (product_id, category_id) VALUES (1, 1), (2, 2);
